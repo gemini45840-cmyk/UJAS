@@ -34,13 +34,6 @@ Design database schema
 Create REST API endpoints
 Implement frontend components
 
-Get Started in 5 Minutes
-bash
-# 1. Fork the repository
-# 2. Comment "I'll take this!"
-# 3. Follow our detailed workflow guides
-# 4. Submit your pull request
-
 Architecture Overview:
 Frontend: ASP.NET Core MVC with Blazor
 Backend: .NET 8 Web API
