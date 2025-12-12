@@ -1,16 +1,7 @@
 🚀 UJAS Platform - The Open Source Hiring Revolution
 <div align="center">
-https://img.shields.io/badge/UJAS-Platform-blue
-https://img.shields.io/badge/.NET-8-purple
-https://img.shields.io/badge/Open%2520Source-Yes-green
-https://img.shields.io/badge/Contributions-Welcome-brightgreen
-https://img.shields.io/badge/Status-Looking%2520for%2520Contributors-yellow
-
+  
 A complete, open-source hiring platform designed by a visionary, built by a community
-
-https://img.shields.io/badge/Discord-Join-7289DA
-https://img.shields.io/github/issues/yourusername/ujas-platform
-https://img.shields.io/github/stars/yourusername/ujas-platform
 
 </div>
 🎯 The Vision
@@ -135,16 +126,6 @@ Pair Programming: Get paired with a mentor
 
 Detailed Documentation: Step-by-step guides for everything
 
-📋 Project Structure
-text
-ujas-platform/
-├── docs/                    # Complete documentation
-│   ├── workflows/          # Detailed implementation guides
-│   ├── architecture/       # Technical specifications
-│   └── tutorials/          # Step-by-step tutorials
-├── src/                    # .NET solution (empty, waiting for you!)
-├── tests/                  # Test projects (to be created)
-└── docker/                 # Docker configuration
 Architecture Overview:
 Frontend: ASP.NET Core MVC with Blazor
 
@@ -427,9 +408,6 @@ TL;DR: Use it, modify it, distribute it, even sell it. Just include the original
 
 <div align="center">
 🚀 The Revolution Starts With Your First Commit
-https://img.shields.io/badge/Join%2520Our%2520Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white
-https://img.shields.io/badge/View%2520Issues-181717?style=for-the-badge&logo=github&logoColor=white
-https://img.shields.io/badge/Star%2520Repository-FFD700?style=for-the-badge&logo=github&logoColor=black
 
 No experience needed. No judgment. Just a community building something amazing together.
 
