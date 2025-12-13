@@ -91,6 +91,19 @@ We welcome **all skill levels**.
 
 ---
 
+## 📐 Project Workflows & Diagrams
+
+All application workflows, system diagrams, and architectural planning for UJAS have already been completed using **Microsoft OneNote**.
+
+These materials are available in the repository under:
+/OneNote
+
+These documents act as the **source of truth** for how UJAS is intended to work and are meant to guide contributors at every experience level.
+
+If you’re unsure *how* or *why* something should be built, start with the OneNote folder.
+
+---
+
 ## 🌍 Community & Contact
 
 ### Community
