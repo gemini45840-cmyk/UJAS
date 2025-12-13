@@ -1,0 +1,16 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using AutoMapper;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Logging;
+global using UJAS.Application.Common.Models;
+global using UJAS.Application.Common.Base;
+global using UJAS.Core.Entities;
+global using UJAS.Core.Interfaces;
+global using UJAS.Core.Specifications;
+global using UJAS.Core.Helpers;
+global using UJAS.Core.Enums;
