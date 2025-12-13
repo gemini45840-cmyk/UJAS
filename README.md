@@ -1,4 +1,4 @@
-UJAS (Universal Job Application System) an Open-Source hiring platfor designed by me a Visionary, built by a community.
+UJAS (Universal Job Application System) an Open-Source hiring platform designed by me a Visionary, built by a community.
 
 This is going to be a complete alternative to expensive ATS/HR systems designed to be self-hosted, 100% customized and completely free with paid addons, or paid hosting if they can't host themselves.
 
