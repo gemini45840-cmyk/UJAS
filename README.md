@@ -1,63 +1,122 @@
-UJAS (Universal Job Application System) an Open-Source hiring platform designed by me a Visionary and a programmer (Self taught), built by a community.
+# UJAS – Universal Job Application System
 
-This is going to be a complete alternative to expensive ATS/HR systems designed to be self-hosted, 100% customized and completely free with paid addons, or paid hosting if they can't host themselves.
+**UJAS** is an open-source hiring platform designed and led by a visionary, self-taught programmer and built by the community.
 
-The Problem
-Companies spend $10,000-$100,000/year on hiring software.  Applicants face clunky, repetitive application processes.  No open-source solution exists that's both comprehensive and enterprise-ready.  Vendor lock-in prevents customization and innovation
+It is a **complete alternative to expensive ATS/HR systems**, designed to be **self-hosted**, **fully customizable**, and **free forever**, with optional paid add-ons or managed hosting for teams that don’t want to host it themselves.
 
-The Solution
-Free forever (self-hosted) or Paid (We host it $49).  Open source (MIT License).  Community-driven (you help build it).  Enterprise-ready (white-label, scalable, secure)
+---
 
-Our plans
-90 Second application time.  You go on company website apply using custom javescript code or QR code.  Select the location and position your applying for, answer custom questions and submit. Saving alot of time and more aqurate information.
+## 🚨 The Problem
 
-Who We're Looking For
-We need ALL skill levels:
-Absolute Beginners - Work on documentation and simple fixes
-Junior Developers - Build basic features with mentorship
-Intermediate Developers - Implement core functionality
-Senior Developers - Design architecture and lead teams
-DevOps Engineers - Set up infrastructure and CI/CD
-UI/UX Designers - Create beautiful interfaces 
-Technical Writers - Write documentation and tutorials
+- Companies spend **$10,000–$100,000 per year** on hiring software  
+- Applicants face **clunky, repetitive application processes**  
+- No open-source solution exists that is both **comprehensive** and **enterprise-ready**  
+- Vendor lock-in prevents **customization, innovation, and ownership**
 
-How to Contribute (Zero Experience Needed)
-For Absolute Beginners:
-Fix typos in documentation
-Improve README formatting
-Test setup scripts
-Create contributor badges
+---
 
-For Developers:
-Build authentication system
-Design database schema
-Create REST API endpoints
-Implement frontend components
+## 💡 The Solution
 
-Architecture Overview:
-Frontend: ASP.NET Core MVC with Blazor
-Backend: .NET 8 Web API
-Database: SQL Server/PostgreSQL with Entity Framework Core
-Authentication: ASP.NET Identity with JWT
-Deployment: Docker, Kubernetes ready
-Plugin System: Extensible architecture
+UJAS gives hiring power back to companies and candidates.
 
-Connect With Us
-Community Channels:
-Discord: https://discord.gg/rrSbs997
+- **Free forever** when self-hosted  
+- **Paid managed hosting** available ($49/month)  
+- **Open-source (MIT License)**  
+- **Community-driven development**  
+- **Enterprise-ready** (white-label, scalable, secure)
 
-Project Leadership:
-Founder: Jerry Thomas
+---
 
-Contact: jayteetechsystems@gmail.com
+## 🎯 Our Vision
 
-License
-UJAS Platform is released under the MIT License - see the LICENSE file for details.
-TL;DR: Use it, modify it, distribute it, even sell it. Just include the original license and don't sue us.
+### 90-Second Job Applications
 
-No experience needed. No judgment. Just a community building something amazing together.
-One line of code at a time.
+Applicants apply directly from a company’s website using:
+- Embedded JavaScript
+- QR codes
 
-Founder's Note: "I've spent months designing every workflow, specification, and architecture decision. Now I need developers to bring this vision to life. Join me, and let's build the future of hiring together."
-Be the first to write code in this repository. Make history with us.
+**Workflow:**
+1. Visit the company website  
+2. Select location and position  
+3. Answer custom questions  
+4. Submit — done in under 90 seconds  
 
+✔ Faster applications  
+✔ Less friction  
+✔ More accurate applicant data  
+
+---
+
+## 👥 Who We’re Looking For
+
+We welcome **all skill levels**.
+
+### Needed Roles
+- **Absolute Beginners** – Documentation and simple fixes  
+- **Junior Developers** – Build basic features with mentorship  
+- **Intermediate Developers** – Implement core functionality  
+- **Senior Developers** – Design architecture and lead teams  
+- **DevOps Engineers** – Infrastructure and CI/CD  
+- **UI/UX Designers** – Modern, clean interfaces  
+- **Technical Writers** – Docs, tutorials, and guides  
+
+---
+
+## 🛠️ How to Contribute (Zero Experience Required)
+
+### Absolute Beginners
+- Fix typos in documentation  
+- Improve README formatting  
+- Test setup scripts  
+- Create contributor badges  
+
+### Developers
+- Build authentication systems  
+- Design database schemas  
+- Create REST API endpoints  
+- Implement frontend components  
+
+---
+
+## 🧱 Architecture Overview
+
+| Layer | Technology |
+|------|-----------|
+| Frontend | ASP.NET Core MVC + Blazor |
+| Backend | .NET 8 Web API |
+| Database | SQL Server / PostgreSQL (Entity Framework Core) |
+| Authentication | ASP.NET Identity + JWT |
+| Deployment | Docker, Kubernetes-ready |
+| Plugins | Extensible plugin architecture |
+
+---
+
+## 🌍 Community & Contact
+
+### Community
+- **Discord:** https://discord.gg/rrSbs997  
+
+### Project Leadership
+- **Founder:** Jerry Thomas  
+- **Email:** jayteetechsystems@gmail.com  
+
+---
+
+## 📄 License
+
+UJAS is released under the **MIT License**.
+
+**TL;DR:**  
+Use it. Modify it. Distribute it. Even sell it.  
+Just include the original license and don’t sue us.
+
+---
+
+## ✍️ Founder’s Note
+
+> *“I’ve spent months designing every workflow, specification, and architectural decision.  
+> Now I need developers to bring this vision to life.  
+> Join me, and let’s build the future of hiring together.”*
+
+**Be the first to write code in this repository.  
+Make history with us — one line of code at a time.**
