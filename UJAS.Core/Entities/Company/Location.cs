@@ -1,4 +1,5 @@
-﻿using UJAS.Core.Entities.User;
+﻿using UJAS.Core.Entities.Application;
+using UJAS.Core.Entities.User;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UJAS.Core.Entities.Company
@@ -22,8 +23,8 @@ namespace UJAS.Core.Entities.Company
         public decimal? Longitude { get; set; }
 
         // Navigation properties
-        public virtual Company Company { get; set; }
-        public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
+        public virtual tCompany Company { get; set; }
+        public virtual ICollection<tApplication> Applications { get; set; } = new List<tApplication>();
         public virtual ICollection<CompanyUser> Managers { get; set; } = new List<CompanyUser>();
         public virtual ICollection<RegionalManagerLocation> RegionalManagers { get; set; } = new List<RegionalManagerLocation>();
     }

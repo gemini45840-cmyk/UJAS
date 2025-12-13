@@ -1,4 +1,5 @@
-﻿using UJAS.Core.Enums;
+﻿using System;
+using UJAS.Core.Enums;
 
 namespace UJAS.Core.ValueObjects
 {

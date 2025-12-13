@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.Application
+﻿using UJAS.Core.Entities.Field;
+
+namespace UJAS.Core.Entities.Application
 {
     public class ApplicationAnswer : BaseEntity
     {
@@ -10,7 +12,7 @@
         public DateTime? AnswerDate { get; set; }
 
         // Navigation properties
-        public virtual Application Application { get; set; }
+        public virtual tApplication Application { get; set; }
         public virtual CompanyField CompanyField { get; set; }
     }
 }

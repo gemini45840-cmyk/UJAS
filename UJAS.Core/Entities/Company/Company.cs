@@ -1,9 +1,12 @@
-﻿using UJAS.Core.Entities.User;
+﻿using UJAS.Core.Entities.Application;
+using UJAS.Core.Entities.Assessment;
+using UJAS.Core.Entities.Field;
+using UJAS.Core.Entities.User;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UJAS.Core.Entities.Company
 {
-    public class Company : BaseAuditableEntity
+    public class tCompany : BaseAuditableEntity
     {
         public string Name { get; set; }
         public string LegalName { get; set; }
@@ -22,9 +25,9 @@ namespace UJAS.Core.Entities.Company
         // Navigation properties
         public virtual ICollection<Location> Locations { get; set; } = new List<Location>();
         public virtual ICollection<CompanyField> CompanyFields { get; set; } = new List<CompanyField>();
-        public virtual ICollection<Assessment> Assessments { get; set; } = new List<Assessment>();
+        public virtual ICollection<tAssessment> Assessments { get; set; } = new List<tAssessment>();
         public virtual ICollection<CompanyUser> CompanyUsers { get; set; } = new List<CompanyUser>();
         public virtual CompanySettings Settings { get; set; }
-        public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
+        public virtual ICollection<tApplication> Applications { get; set; } = new List<tApplication>();
     }
 }

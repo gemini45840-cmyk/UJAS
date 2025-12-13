@@ -1,9 +1,11 @@
-﻿using UJAS.Core.Entities.Profile;
+﻿using UJAS.Core.Entities.Assessment;
+using UJAS.Core.Entities.Company;
+using UJAS.Core.Entities.Profile;
 using UJAS.Core.Enums;
 
 namespace UJAS.Core.Entities.Application
 {
-    public class Application : BaseAuditableEntity
+    public class tApplication : BaseAuditableEntity
     {
         public string ApplicationNumber { get; set; }
         public int ApplicantProfileId { get; set; }
@@ -26,7 +28,7 @@ namespace UJAS.Core.Entities.Application
 
         // Navigation properties
         public virtual ApplicantProfile ApplicantProfile { get; set; }
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
         public virtual Location Location { get; set; }
         public virtual ICollection<ApplicationAnswer> ApplicationAnswers { get; set; } = new List<ApplicationAnswer>();
         public virtual ICollection<ApplicationStatusHistory> StatusHistory { get; set; } = new List<ApplicationStatusHistory>();

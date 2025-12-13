@@ -1,4 +1,4 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+﻿using UJAS.Core.Entities.Company;
 
 namespace UJAS.Core.Entities.User
 {
@@ -9,8 +9,8 @@ namespace UJAS.Core.Entities.User
         public int? CompanyId { get; set; }
 
         // Navigation properties
-        public virtual User User { get; set; }
+        public virtual tUser User { get; set; }
         public virtual Role Role { get; set; }
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
     }
 }

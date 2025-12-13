@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.User
+﻿using UJAS.Core.Entities.Company;
+
+namespace UJAS.Core.Entities.User
 {
     public class RegionalManagerLocation : BaseEntity
     {

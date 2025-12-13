@@ -8,6 +8,6 @@
         public string Value { get; set; }
 
         // Navigation properties
-        public virtual User User { get; set; }
+        public virtual tUser User { get; set; }
     }
 }

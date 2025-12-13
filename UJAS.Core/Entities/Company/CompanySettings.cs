@@ -16,6 +16,6 @@
         public string DateFormat { get; set; } = "MM/dd/yyyy";
 
         // Navigation properties
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
     }
 }

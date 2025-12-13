@@ -1,8 +1,9 @@
-﻿using UJAS.Core.Enums;
+﻿using UJAS.Core.Entities.Company;
+using UJAS.Core.Enums;
 
 namespace UJAS.Core.Entities.Assessment
 {
-    public class Assessment : BaseEntity
+    public class tAssessment : BaseEntity
     {
         public int CompanyId { get; set; }
         public string Name { get; set; }
@@ -19,7 +20,7 @@ namespace UJAS.Core.Entities.Assessment
         public string ExternalAssessmentUrl { get; set; }
 
         // Navigation properties
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
         public virtual ICollection<AssessmentQuestion> Questions { get; set; } = new List<AssessmentQuestion>();
         public virtual ICollection<ApplicationAssessment> ApplicationAssessments { get; set; } = new List<ApplicationAssessment>();
     }

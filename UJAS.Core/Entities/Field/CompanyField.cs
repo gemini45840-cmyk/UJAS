@@ -1,4 +1,5 @@
 ﻿using UJAS.Core.Entities.Application;
+using UJAS.Core.Entities.Company;
 using UJAS.Core.Enums;
 
 namespace UJAS.Core.Entities.Field
@@ -28,7 +29,7 @@ namespace UJAS.Core.Entities.Field
         public bool ApplyToAllLocations { get; set; } = true;
 
         // Navigation properties
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
         public virtual SystemField SystemField { get; set; }
         public virtual ICollection<LocationField> LocationFields { get; set; } = new List<LocationField>();
         public virtual ICollection<ApplicationAnswer> ApplicationAnswers { get; set; } = new List<ApplicationAnswer>();

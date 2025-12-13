@@ -15,6 +15,6 @@ namespace UJAS.Core.Entities.Application
         public DateTime UploadDate { get; set; }
 
         // Navigation properties
-        public virtual Application Application { get; set; }
+        public virtual tApplication Application { get; set; }
     }
 }

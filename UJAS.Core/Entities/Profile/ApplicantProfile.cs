@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿
+using UJAS.Core.Entities.Application;
+using UJAS.Core.Entities.User;
 using UJAS.Core.Enums;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -79,7 +81,7 @@ namespace UJAS.Core.Entities.Profile
         public bool? PhotoUsageConsent { get; set; }
 
         // Navigation properties
-        public virtual User User { get; set; }
+        public virtual tUser User { get; set; }
         public virtual ICollection<EducationHistory> EducationHistories { get; set; } = new List<EducationHistory>();
         public virtual ICollection<LicenseCertification> LicensesCertifications { get; set; } = new List<LicenseCertification>();
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
@@ -87,7 +89,7 @@ namespace UJAS.Core.Entities.Profile
         public virtual ICollection<Document> Documents { get; set; } = new List<Document>();
         public virtual ICollection<Reference> References { get; set; } = new List<Reference>();
         public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; } = new List<EmergencyContact>();
-        public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
+        public virtual ICollection<tApplication> Applications { get; set; } = new List<tApplication>();
         public virtual MilitaryService MilitaryService { get; set; }
         public virtual DriversLicenseInfo DriversLicenseInfo { get; set; }
         public virtual CriminalHistory CriminalHistory { get; set; }

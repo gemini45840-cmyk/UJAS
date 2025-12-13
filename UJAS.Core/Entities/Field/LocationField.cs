@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.Field
+﻿using UJAS.Core.Entities.Company;
+
+namespace UJAS.Core.Entities.Field
 {
     public class LocationField : BaseEntity
     {

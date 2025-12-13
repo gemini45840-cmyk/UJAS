@@ -1,4 +1,5 @@
-﻿using UJAS.Core.Enums;
+﻿using UJAS.Core.Entities.Application;
+using UJAS.Core.Enums;
 
 namespace UJAS.Core.Entities.Assessment
 {
@@ -16,8 +17,8 @@ namespace UJAS.Core.Entities.Assessment
         public DateTime? ExpiresAt { get; set; }
 
         // Navigation properties
-        public virtual Application Application { get; set; }
-        public virtual Assessment Assessment { get; set; }
+        public virtual tApplication Application { get; set; }
+        public virtual tAssessment Assessment { get; set; }
         public virtual ICollection<AssessmentResponse> Responses { get; set; } = new List<AssessmentResponse>();
     }
 }

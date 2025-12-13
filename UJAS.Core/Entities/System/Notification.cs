@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.System
+﻿using UJAS.Core.Entities.User;
+
+namespace UJAS.Core.Entities.System
 {
     public class Notification : BaseEntity
     {
@@ -11,6 +13,6 @@
         public DateTime? ReadDate { get; set; }
 
         // Navigation properties
-        public virtual User User { get; set; }
+        public virtual tUser User { get; set; }
     }
 }

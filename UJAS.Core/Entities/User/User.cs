@@ -1,8 +1,9 @@
-﻿using UJAS.Core.Enums;
+﻿using UJAS.Core.Entities.Profile;
+using UJAS.Core.Enums;
 
 namespace UJAS.Core.Entities.User
 {
-    public class User : BaseAuditableEntity
+    public class tUser : BaseAuditableEntity
     {
         public string Email { get; set; }
         public string NormalizedEmail { get; set; }

@@ -12,6 +12,6 @@ namespace UJAS.Core.Entities.Application
         public string Notes { get; set; }
 
         // Navigation properties
-        public virtual Application Application { get; set; }
+        public virtual tApplication Application { get; set; }
     }
 }

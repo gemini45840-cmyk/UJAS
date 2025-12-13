@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.System
+﻿using UJAS.Core.Entities.Company;
+
+namespace UJAS.Core.Entities.System
 {
     public class EmailTemplate : BaseEntity
     {
@@ -12,6 +14,6 @@
         public int? CompanyId { get; set; }
 
         // Navigation properties
-        public virtual Company Company { get; set; }
+        public virtual tCompany Company { get; set; }
     }
 }

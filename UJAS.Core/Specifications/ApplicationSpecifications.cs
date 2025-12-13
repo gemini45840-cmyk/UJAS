@@ -1,15 +1,17 @@
-﻿using UJAS.Core.Enums;
+﻿using UJAS.Core.Entities.Application;
+using UJAS.Core.Enums;
+using UJAS.Core.Helpers;
 
 namespace UJAS.Core.Specifications
 {
-    public class ApplicationsByCompanySpecification : BaseSpecification<Application>
+    public class ApplicationsByCompanySpecification : BaseSpecification<tApplication>
     {
         public ApplicationsByCompanySpecification(int companyId,
             ApplicationStatus? status = null,
             DateTime? fromDate = null,
             DateTime? toDate = null)
         {
-            var criteria = PredicateBuilder.True<Application>();
+            var criteria = PredicateBuilder.True<tApplication>();
             criteria = criteria.And(a => a.CompanyId == companyId && !a.IsDeleted);
 
             if (status.HasValue)
@@ -34,7 +36,7 @@ namespace UJAS.Core.Specifications
         }
     }
 
-    public class ApplicationsByApplicantSpecification : BaseSpecification<Application>
+    public class ApplicationsByApplicantSpecification : BaseSpecification<tApplication>
     {
         public ApplicationsByApplicantSpecification(int applicantProfileId)
         {
@@ -45,12 +47,12 @@ namespace UJAS.Core.Specifications
         }
     }
 
-    public class ApplicationsByManagerSpecification : BaseSpecification<Application>
+    public class ApplicationsByManagerSpecification : BaseSpecification<tApplication>
     {
         public ApplicationsByManagerSpecification(int locationId,
             ApplicationStatus? status = null)
         {
-            var criteria = PredicateBuilder.True<Application>();
+            var criteria = PredicateBuilder.True<tApplication>();
             criteria = criteria.And(a => a.LocationId == locationId && !a.IsDeleted);
 
             if (status.HasValue)

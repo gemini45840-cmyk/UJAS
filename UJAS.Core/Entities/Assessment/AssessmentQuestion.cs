@@ -13,6 +13,6 @@
         public string HelpText { get; set; }
 
         // Navigation properties
-        public virtual Assessment Assessment { get; set; }
+        public virtual tAssessment Assessment { get; set; }
     }
 }

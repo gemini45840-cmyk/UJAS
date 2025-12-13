@@ -1,4 +1,6 @@
-﻿namespace UJAS.Core.Entities.Application
+﻿using UJAS.Core.Entities.User;
+
+namespace UJAS.Core.Entities.Application
 {
     public class ApplicationComment : BaseEntity
     {
@@ -9,7 +11,7 @@
         public bool VisibleToApplicant { get; set; } = false;
 
         // Navigation properties
-        public virtual Application Application { get; set; }
-        public virtual User User { get; set; }
+        public virtual tApplication Application { get; set; }
+        public virtual tUser User { get; set; }
     }
 }
