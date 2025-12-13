@@ -4,9 +4,9 @@ using UJAS.Core.Entities.Application;
 
 namespace UJAS.Infrastructure.Configurations.Application
 {
-    public class ApplicationConfiguration : IEntityTypeConfiguration<Application>
+    public class ApplicationConfiguration : IEntityTypeConfiguration<tApplication>
     {
-        public void Configure(EntityTypeBuilder<Application> builder)
+        public void Configure(EntityTypeBuilder<tApplication> builder)
         {
             builder.ToTable("Applications");
 

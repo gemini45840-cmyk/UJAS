@@ -18,12 +18,12 @@ namespace UJAS.Infrastructure.Seed
     public class DataSeeder : IDataSeeder
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<tUser> _userManager;
         private readonly RoleManager<Role> _roleManager;
 
         public DataSeeder(
             ApplicationDbContext context,
-            UserManager<User> userManager,
+            UserManager<tUser> userManager,
             RoleManager<Role> roleManager)
         {
             _context = context;
@@ -215,7 +215,7 @@ namespace UJAS.Infrastructure.Seed
             if (await _context.Companies.AnyAsync())
                 return;
 
-            var defaultCompany = new Company
+            var defaultCompany = new tCompany
             {
                 Name = "Demo Company",
                 LegalName = "Demo Company Inc.",
@@ -242,7 +242,7 @@ namespace UJAS.Infrastructure.Seed
             if (await _userManager.Users.AnyAsync(u => u.Email == "admin@ujas.com"))
                 return;
 
-            var adminUser = new User
+            var adminUser = new tUser
             {
                 FirstName = "System",
                 LastName = "Administrator",

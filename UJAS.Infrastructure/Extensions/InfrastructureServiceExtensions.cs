@@ -35,7 +35,7 @@ namespace UJAS.Infrastructure.Extensions
                     }));
 
             // Identity
-            services.AddIdentity<User, Role>(options =>
+            services.AddIdentity<tUser, Role>(options =>
             {
                 // Password settings
                 options.Password.RequireDigit = true;

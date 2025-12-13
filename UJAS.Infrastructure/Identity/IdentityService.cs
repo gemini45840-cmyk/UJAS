@@ -15,26 +15,26 @@ namespace UJAS.Infrastructure.Identity
 {
     public interface IIdentityService
     {
-        Task<(Result Result, string Token, User User)> LoginAsync(string email, string password);
-        Task<(Result Result, string Token, User User)> RegisterAsync(User user, string password, UserRole role);
+        Task<(Result Result, string Token, tUser User)> LoginAsync(string email, string password);
+        Task<(Result Result, string Token, tUser User)> RegisterAsync(tUser user, string password, Core.Entities.User.UserRole role);
         Task<Result> ChangePasswordAsync(int userId, string currentPassword, string newPassword);
         Task<Result> ResetPasswordAsync(string email);
-        Task<User> GetUserByIdAsync(int userId);
-        Task<User> GetUserByEmailAsync(string email);
-        Task<IList<string>> GetUserRolesAsync(User user);
-        Task<bool> IsInRoleAsync(User user, string role);
-        Task<Result> AddToRoleAsync(User user, string role);
-        Task<Result> RemoveFromRoleAsync(User user, string role);
-        Task<string> GenerateEmailConfirmationTokenAsync(User user);
-        Task<Result> ConfirmEmailAsync(User user, string token);
-        Task<string> GeneratePasswordResetTokenAsync(User user);
-        Task<Result> ResetPasswordAsync(User user, string token, string newPassword);
+        Task<tUser> GetUserByIdAsync(int userId);
+        Task<tUser> GetUserByEmailAsync(string email);
+        Task<IList<string>> GetUserRolesAsync(tUser user);
+        Task<bool> IsInRoleAsync(tUser user, string role);
+        Task<Result> AddToRoleAsync(tUser user, string role);
+        Task<Result> RemoveFromRoleAsync(tUser user, string role);
+        Task<string> GenerateEmailConfirmationTokenAsync(tUser user);
+        Task<Result> ConfirmEmailAsync(tUser user, string token);
+        Task<string> GeneratePasswordResetTokenAsync(tUser user);
+        Task<Result> ResetPasswordAsync(tUser user, string token, string newPassword);
     }
 
     public class IdentityService : IIdentityService
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<tUser> _userManager;
+        private readonly SignInManager<tUser> _signInManager;
         private readonly RoleManager<Role> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ILogger<IdentityService> _logger;
@@ -42,9 +42,9 @@ namespace UJAS.Infrastructure.Identity
         private readonly IRepository<CompanyUser> _companyUserRepository;
 
         public IdentityService(
-            UserManager<User> userManager,
+            UserManager<tUser> userManager,
             SignInManager<Role> roleManager,
-            SignInManager<User> signInManager,
+            SignInManager<tUser> signInManager,
             IConfiguration configuration,
             ILogger<IdentityService> logger,
             ApplicationDbContext context,
@@ -59,7 +59,7 @@ namespace UJAS.Infrastructure.Identity
             _companyUserRepository = companyUserRepository;
         }
 
-        public async Task<(Result Result, string Token, User User)> LoginAsync(string email, string password)
+        public async Task<(Result Result, string Token, tUser User)> LoginAsync(string email, string password)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace UJAS.Infrastructure.Identity
             }
         }
 
-        public async Task<(Result Result, string Token, User User)> RegisterAsync(User user, string password, UserRole role)
+        public async Task<(Result Result, string Token, tUser User)> RegisterAsync(tUser user, string password, Core.Entities.User.UserRole role)
         {
             try
             {
@@ -130,55 +130,55 @@ namespace UJAS.Infrastructure.Identity
             }
         }
 
-        public async Task<User> GetUserByIdAsync(int userId)
+        public async Task<tUser> GetUserByIdAsync(int userId)
         {
             return await _userManager.FindByIdAsync(userId.ToString());
         }
 
-        public async Task<User> GetUserByEmailAsync(string email)
+        public async Task<tUser> GetUserByEmailAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
         }
 
-        public async Task<IList<string>> GetUserRolesAsync(User user)
+        public async Task<IList<string>> GetUserRolesAsync(tUser user)
         {
             return await _userManager.GetRolesAsync(user);
         }
 
-        public async Task<bool> IsInRoleAsync(User user, string role)
+        public async Task<bool> IsInRoleAsync(tUser user, string role)
         {
             return await _userManager.IsInRoleAsync(user, role);
         }
 
-        public async Task<Result> AddToRoleAsync(User user, string role)
+        public async Task<Result> AddToRoleAsync(tUser user, string role)
         {
             var result = await _userManager.AddToRoleAsync(user, role);
             return result.Succeeded ? Result.Success() : Result.Failure(string.Join(", ", result.Errors.Select(e => e.Description)));
         }
 
-        public async Task<Result> RemoveFromRoleAsync(User user, string role)
+        public async Task<Result> RemoveFromRoleAsync(tUser user, string role)
         {
             var result = await _userManager.RemoveFromRoleAsync(user, role);
             return result.Succeeded ? Result.Success() : Result.Failure(string.Join(", ", result.Errors.Select(e => e.Description)));
         }
 
-        public async Task<string> GenerateEmailConfirmationTokenAsync(User user)
+        public async Task<string> GenerateEmailConfirmationTokenAsync(tUser user)
         {
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
         }
 
-        public async Task<Result> ConfirmEmailAsync(User user, string token)
+        public async Task<Result> ConfirmEmailAsync(tUser user, string token)
         {
             var result = await _userManager.ConfirmEmailAsync(user, token);
             return result.Succeeded ? Result.Success() : Result.Failure(string.Join(", ", result.Errors.Select(e => e.Description)));
         }
 
-        public async Task<string> GeneratePasswordResetTokenAsync(User user)
+        public async Task<string> GeneratePasswordResetTokenAsync(tUser user)
         {
             return await _userManager.GeneratePasswordResetTokenAsync(user);
         }
 
-        public async Task<Result> ResetPasswordAsync(User user, string token, string newPassword)
+        public async Task<Result> ResetPasswordAsync(tUser user, string token, string newPassword)
         {
             var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
             return result.Succeeded ? Result.Success() : Result.Failure(string.Join(", ", result.Errors.Select(e => e.Description)));
@@ -210,7 +210,7 @@ namespace UJAS.Infrastructure.Identity
             return Result.Success();
         }
 
-        private async Task<string> GenerateJwtTokenAsync(User user)
+        private async Task<string> GenerateJwtTokenAsync(tUser user)
         {
             var claims = new List<Claim>
             {

@@ -5,9 +5,9 @@ using UJAS.Core.Entities.User;
 
 namespace UJAS.Infrastructure.Configurations.User
 {
-    public class UserConfiguration : IEntityTypeConfiguration<Core.Entities.User.User>
+    public class UserConfiguration : IEntityTypeConfiguration<Core.Entities.User.tUser>
     {
-        public void Configure(EntityTypeBuilder<Core.Entities.User.User> builder)
+        public void Configure(EntityTypeBuilder<Core.Entities.User.tUser> builder)
         {
             builder.ToTable("Users");
 
@@ -68,9 +68,9 @@ namespace UJAS.Infrastructure.Configurations.User
     }
 }
 
-public class RoleConfiguration : IEntityTypeConfiguration<Core.Entities.User.Role>
+public class RoleConfiguration : IEntityTypeConfiguration<UJAS.Core.Entities.User.Role>
 {
-    public void Configure(EntityTypeBuilder<Core.Entities.User.Role> builder)
+    public void Configure(EntityTypeBuilder<UJAS.Core.Entities.User.Role> builder)
     {
         builder.ToTable("Roles");
 

@@ -12,7 +12,7 @@ using UJAS.Core.Entities.User;
 
 namespace UJAS.Infrastructure.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User, Role, int,
+    public class ApplicationDbContext : IdentityDbContext<tUser, Role, int,
         UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -21,7 +21,7 @@ namespace UJAS.Infrastructure.Data
         }
 
         // Company Entities
-        public DbSet<Company> Companies { get; set; }
+        public DbSet<tCompany> Companies { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<CompanySettings> CompanySettings { get; set; }
 
@@ -39,7 +39,7 @@ namespace UJAS.Infrastructure.Data
         public DbSet<CriminalHistory> CriminalHistories { get; set; }
 
         // Application Entities
-        public DbSet<Application> Applications { get; set; }
+        public DbSet<tApplication> Applications { get; set; }
         public DbSet<ApplicationAnswer> ApplicationAnswers { get; set; }
         public DbSet<ApplicationStatusHistory> ApplicationStatusHistories { get; set; }
         public DbSet<ApplicationComment> ApplicationComments { get; set; }
@@ -51,7 +51,7 @@ namespace UJAS.Infrastructure.Data
         public DbSet<LocationField> LocationFields { get; set; }
 
         // Assessment Entities
-        public DbSet<Assessment> Assessments { get; set; }
+        public DbSet<tAssessment> Assessments { get; set; }
         public DbSet<AssessmentQuestion> AssessmentQuestions { get; set; }
         public DbSet<ApplicationAssessment> ApplicationAssessments { get; set; }
         public DbSet<AssessmentResponse> AssessmentResponses { get; set; }
@@ -99,7 +99,7 @@ namespace UJAS.Infrastructure.Data
             }
 
             // Configure Identity tables
-            modelBuilder.Entity<User>(b =>
+            modelBuilder.Entity<tUser>(b =>
             {
                 b.ToTable("Users");
                 b.HasKey(u => u.Id);

@@ -4,9 +4,9 @@ using UJAS.Core.Entities.Company;
 
 namespace UJAS.Infrastructure.Configurations.Company
 {
-    public class CompanyConfiguration : IEntityTypeConfiguration<Company>
+    public class CompanyConfiguration : IEntityTypeConfiguration<tCompany>
     {
-        public void Configure(EntityTypeBuilder<Company> builder)
+        public void Configure(EntityTypeBuilder<tCompany> builder)
         {
             builder.ToTable("Companies");
 
