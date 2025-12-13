@@ -1,13 +1,7 @@
-﻿using AutoMapper;
-using UJAS.Application.Applications.Dtos;
-using UJAS.Application.Assessments.Dtos;
-using UJAS.Application.Common.Models;
+﻿using UJAS.Application.Applications.Dtos;
 using UJAS.Application.Companies.Dtos;
-using UJAS.Application.Fields.Dtos;
 using UJAS.Application.Locations.Dtos;
-using UJAS.Application.Notifications.Dtos;
 using UJAS.Application.Profiles.Dtos;
-using UJAS.Application.Users.Dtos;
 
 namespace UJAS.Application.Common.Mappings
 {
@@ -16,10 +10,10 @@ namespace UJAS.Application.Common.Mappings
         public MappingProfile()
         {
             // Company mappings
-            CreateMap<Core.Entities.Company.Company, CompanyDto>();
-            CreateMap<CompanyDto, Core.Entities.Company.Company>();
-            CreateMap<CreateCompanyDto, Core.Entities.Company.Company>();
-            CreateMap<UpdateCompanyDto, Core.Entities.Company.Company>();
+            CreateMap<Core.Entities.Company.tCompany, CompanyDto>();
+            CreateMap<CompanyDto, Core.Entities.Company.tCompany>();
+            CreateMap<CreateCompanyDto, Core.Entities.Company.tCompany>();
+            CreateMap<UpdateCompanyDto, Core.Entities.Company.tCompany>();
 
             CreateMap<Core.Entities.Company.CompanySettings, CompanySettingsDto>();
             CreateMap<CompanySettingsDto, Core.Entities.Company.CompanySettings>();
@@ -61,15 +55,15 @@ namespace UJAS.Application.Common.Mappings
             CreateMap<UpdateSkillDto, Core.Entities.Profile.Skill>();
 
             // Application mappings
-            CreateMap<Core.Entities.Application.Application, ApplicationDto>()
+            CreateMap<Core.Entities.Application.tApplication, ApplicationDto>()
                 .ForMember(dest => dest.ApplicantName, opt => opt.MapFrom(src =>
                     $"{src.ApplicantProfile.FirstName} {src.ApplicantProfile.LastName}"))
                 .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.Name))
                 .ForMember(dest => dest.LocationName, opt => opt.MapFrom(src => src.Location.Name));
 
-            CreateMap<ApplicationDto, Core.Entities.Application.Application>();
-            CreateMap<CreateApplicationDto, Core.Entities.Application.Application>();
-            CreateMap<UpdateApplicationDto, Core.Entities.Application.Application>();
+            CreateMap<ApplicationDto, Core.Entities.Application.tApplication>();
+            CreateMap<CreateApplicationDto, Core.Entities.Application.tApplication>();
+            CreateMap<UpdateApplicationDto, Core.Entities.Application.tApplication>();
 
             CreateMap<Core.Entities.Application.ApplicationStatusHistory, ApplicationStatusHistoryDto>();
             CreateMap<ApplicationStatusHistoryDto, Core.Entities.Application.ApplicationStatusHistory>();
@@ -79,10 +73,10 @@ namespace UJAS.Application.Common.Mappings
                     $"{src.User.FirstName} {src.User.LastName}"));
 
             // Assessment mappings
-            CreateMap<Core.Entities.Assessment.Assessment, AssessmentDto>();
-            CreateMap<AssessmentDto, Core.Entities.Assessment.Assessment>();
-            CreateMap<CreateAssessmentDto, Core.Entities.Assessment.Assessment>();
-            CreateMap<UpdateAssessmentDto, Core.Entities.Assessment.Assessment>();
+            CreateMap<Core.Entities.Assessment.tAssessment, AssessmentDto>();
+            CreateMap<AssessmentDto, Core.Entities.Assessment.tAssessment>();
+            CreateMap<CreateAssessmentDto, Core.Entities.Assessment.tAssessment>();
+            CreateMap<UpdateAssessmentDto, Core.Entities.Assessment.tAssessment>();
 
             CreateMap<Core.Entities.Assessment.ApplicationAssessment, ApplicationAssessmentDto>();
             CreateMap<ApplicationAssessmentDto, Core.Entities.Assessment.ApplicationAssessment>();
@@ -97,12 +91,12 @@ namespace UJAS.Application.Common.Mappings
             CreateMap<UpdateCompanyFieldDto, Core.Entities.Field.CompanyField>();
 
             // User mappings
-            CreateMap<Core.Entities.User.User, UserDto>()
+            CreateMap<Core.Entities.User.tUser, UserDto>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
 
-            CreateMap<UserDto, Core.Entities.User.User>();
-            CreateMap<CreateUserDto, Core.Entities.User.User>();
-            CreateMap<UpdateUserDto, Core.Entities.User.User>();
+            CreateMap<UserDto, Core.Entities.User.tUser>();
+            CreateMap<CreateUserDto, Core.Entities.User.tUser>();
+            CreateMap<UpdateUserDto, Core.Entities.User.tUser>();
 
             CreateMap<Core.Entities.User.CompanyUser, CompanyUserDto>();
             CreateMap<CompanyUserDto, Core.Entities.User.CompanyUser>();

@@ -38,14 +38,14 @@ namespace UJAS.Application.Companies.Queries
                     return await HandleUnauthorizedAsync<CompanyDto>("view company");
 
                 // Get company with includes
-                var includes = new List<System.Linq.Expressions.Expression<Func<Core.Entities.Company.Company, object>>>();
+                var includes = new List<System.Linq.Expressions.Expression<Func<Core.Entities.Company.tCompany, object>>>();
 
                 includes.Add(c => c.Settings);
 
                 if (request.IncludeLocations)
                     includes.Add(c => c.Locations.Where(l => !l.IsDeleted));
 
-                var company = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var company = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .GetEntityWithSpec(new CompanyByIdSpecification(request.CompanyId, includes));
 
                 if (company == null)
@@ -70,7 +70,7 @@ namespace UJAS.Application.Companies.Queries
 
         private async Task<CompanyStatisticsDto> GetCompanyStatisticsAsync(int companyId)
         {
-            var applications = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+            var applications = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                 .GetAsync(a => a.CompanyId == companyId && !a.IsDeleted);
 
             var locations = await _unitOfWork.Repository<Core.Entities.Company.Location>()
@@ -112,10 +112,10 @@ namespace UJAS.Application.Companies.Queries
         }
     }
 
-    public class CompanyByIdSpecification : BaseSpecification<Core.Entities.Company.Company>
+    public class CompanyByIdSpecification : BaseSpecification<Core.Entities.Company.tCompany>
     {
         public CompanyByIdSpecification(int companyId,
-            List<System.Linq.Expressions.Expression<Func<Core.Entities.Company.Company, object>>> includes = null)
+            List<System.Linq.Expressions.Expression<Func<Core.Entities.Company.tCompany, object>>> includes = null)
         {
             AddCriteria(c => c.Id == companyId && !c.IsDeleted);
 

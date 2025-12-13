@@ -96,9 +96,9 @@ namespace UJAS.Application.Common.Interfaces
         {
             if (!UserId.HasValue) return false;
 
-            var user = await _unitOfWork.Repository<Core.Entities.User.User>()
+            var user = await _unitOfWork.Repository<Core.Entities.User.tUser>()
                 .GetSingleAsync(u => u.Id == UserId.Value,
-                    includes: new List<System.Linq.Expressions.Expression<Func<Core.Entities.User.User, object>>>
+                    includes: new List<System.Linq.Expressions.Expression<Func<Core.Entities.User.tUser, object>>>
                     {
                         u => u.UserRoles,
                         u => u.UserRoles.Select(ur => ur.Role)
@@ -115,9 +115,9 @@ namespace UJAS.Application.Common.Interfaces
         {
             if (!UserId.HasValue) return false;
 
-            var application = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+            var application = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                 .GetSingleAsync(a => a.Id == applicationId,
-                    includes: new List<System.Linq.Expressions.Expression<Func<Core.Entities.Application.Application, object>>>
+                    includes: new List<System.Linq.Expressions.Expression<Func<Core.Entities.Application.tApplication, object>>>
                     {
                         a => a.Location
                     });
@@ -205,7 +205,7 @@ namespace UJAS.Application.Common.Interfaces
         {
             if (!UserId.HasValue) return false;
 
-            var application = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+            var application = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                 .GetSingleAsync(a => a.Id == applicationId && a.ApplicantProfile.UserId == UserId.Value);
 
             return application != null;

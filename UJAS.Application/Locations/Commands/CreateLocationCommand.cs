@@ -36,7 +36,7 @@ namespace UJAS.Application.Locations.Commands
                     return await HandleUnauthorizedAsync<LocationDto>("create location");
 
                 // Validate company exists
-                var company = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var company = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .GetByIdAsync(request.Location.CompanyId);
 
                 if (company == null)

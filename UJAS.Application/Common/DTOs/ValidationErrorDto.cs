@@ -1,0 +1,10 @@
+﻿namespace UJAS.Application.Common.DTOs
+{
+    public class ValidationErrorDto
+    {
+        public string PropertyName { get; set; }
+        public string ErrorMessage { get; set; }
+        public string ErrorCode { get; set; }
+        public object AttemptedValue { get; set; }
+    }
+}

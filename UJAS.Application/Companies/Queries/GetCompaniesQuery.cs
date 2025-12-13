@@ -50,10 +50,10 @@ namespace UJAS.Application.Companies.Queries
                     request.SortBy,
                     request.SortDescending);
 
-                var companies = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var companies = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .ListAsync(spec);
 
-                var totalCount = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var totalCount = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .CountAsync(spec);
 
                 var companyDtos = _mapper.Map<List<CompanyDto>>(companies);
@@ -86,7 +86,7 @@ namespace UJAS.Application.Companies.Queries
         private async Task<CompanyStatisticsDto> GetCompanyStatisticsAsync(int companyId)
         {
             // Similar to previous implementation
-            var applications = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+            var applications = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                 .CountAsync(a => a.CompanyId == companyId && !a.IsDeleted);
 
             var locations = await _unitOfWork.Repository<Core.Entities.Company.Location>()
@@ -100,7 +100,7 @@ namespace UJAS.Application.Companies.Queries
         }
     }
 
-    public class CompaniesSpecification : BaseSpecification<Core.Entities.Company.Company>
+    public class CompaniesSpecification : BaseSpecification<Core.Entities.Company.tCompany>
     {
         public CompaniesSpecification(
             string searchTerm,
@@ -112,7 +112,7 @@ namespace UJAS.Application.Companies.Queries
             string sortBy,
             bool sortDescending)
         {
-            var criteria = PredicateBuilder.True<Core.Entities.Company.Company>();
+            var criteria = PredicateBuilder.True<Core.Entities.Company.tCompany>();
 
             criteria = criteria.And(c => !c.IsDeleted);
 
@@ -158,7 +158,7 @@ namespace UJAS.Application.Companies.Queries
             ApplyPaging(pageNumber, pageSize);
         }
 
-        private System.Linq.Expressions.Expression<Func<Core.Entities.Company.Company, object>> GetSortExpression(string sortBy)
+        private System.Linq.Expressions.Expression<Func<Core.Entities.Company.tCompany, object>> GetSortExpression(string sortBy)
         {
             return sortBy.ToLower() switch
             {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
+using UJAS.Application.Applications.Dtos;
 using UJAS.Application.Common.Interfaces;
 using UJAS.Application.Common.Models;
 using UJAS.Infrastructure.Repositories.Base;
@@ -38,7 +39,7 @@ namespace UJAS.Application.Common.Services
         {
             try
             {
-                var company = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var company = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .GetByIdAsync(companyId);
 
                 if (company == null)
@@ -49,7 +50,7 @@ namespace UJAS.Application.Common.Services
                 var month = today.ToString("MM");
 
                 // Get sequence number for today
-                var applicationsToday = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+                var applicationsToday = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                     .CountAsync(a => a.CompanyId == companyId &&
                                     a.CreatedAt.Date == today.Date);
 
@@ -98,7 +99,7 @@ namespace UJAS.Application.Common.Services
                 if (locationId.HasValue && !await _currentUser.HasAccessToLocationAsync(locationId.Value))
                     return ApiResponse<ApplicationMetricsDto>.FailureResponse("Access denied", statusCode: 403);
 
-                var query = _unitOfWork.Repository<Core.Entities.Application.Application>()
+                var query = _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                     .GetQueryable();
 
                 // Apply filters
@@ -182,7 +183,7 @@ namespace UJAS.Application.Common.Services
                     errors.Add("Applicant profile is required");
 
                 // Validate company exists
-                var company = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var company = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .GetByIdAsync(applicationDto.CompanyId);
 
                 if (company == null)
@@ -203,7 +204,7 @@ namespace UJAS.Application.Common.Services
                     errors.Add("Applicant profile not found");
 
                 // Validate no duplicate application for same position
-                var existingApplication = await _unitOfWork.Repository<Core.Entities.Application.Application>()
+                var existingApplication = await _unitOfWork.Repository<Core.Entities.Application.tApplication>()
                     .GetSingleAsync(a => a.ApplicantProfileId == applicationDto.ApplicantProfileId &&
                                         a.CompanyId == applicationDto.CompanyId &&
                                         a.LocationId == applicationDto.LocationId &&

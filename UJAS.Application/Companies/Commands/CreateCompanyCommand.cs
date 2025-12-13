@@ -36,7 +36,7 @@ namespace UJAS.Application.Companies.Commands
                     return await HandleUnauthorizedAsync<CompanyDto>("create company");
 
                 // Check if company with same name already exists
-                var existingCompany = await _unitOfWork.Repository<Core.Entities.Company.Company>()
+                var existingCompany = await _unitOfWork.Repository<Core.Entities.Company.tCompany>()
                     .GetSingleAsync(c => c.Name == request.Company.Name && !c.IsDeleted);
 
                 if (existingCompany != null)
@@ -44,7 +44,7 @@ namespace UJAS.Application.Companies.Commands
                         "A company with this name already exists");
 
                 // Map and create company
-                var company = _mapper.Map<Core.Entities.Company.Company>(request.Company);
+                var company = _mapper.Map<Core.Entities.Company.tCompany>(request.Company);
                 company.CreatedAt = _dateTime.UtcNow;
                 company.CreatedBy = _currentUser.Email ?? "system";
                 company.IsActive = true;
@@ -55,7 +55,7 @@ namespace UJAS.Application.Companies.Commands
                     company.Settings = _mapper.Map<Core.Entities.Company.CompanySettings>(request.Company.Settings);
                 }
 
-                await _unitOfWork.Repository<Core.Entities.Company.Company>().AddAsync(company);
+                await _unitOfWork.Repository<Core.Entities.Company.tCompany>().AddAsync(company);
                 await _unitOfWork.SaveChangesAsync();
 
                 // Generate widget embed code
@@ -72,7 +72,7 @@ namespace UJAS.Application.Companies.Commands
             }
         }
 
-        private string GenerateWidgetEmbedCode(Core.Entities.Company.Company company)
+        private string GenerateWidgetEmbedCode(Core.Entities.Company.tCompany company)
         {
             var widgetCode = $@"
 <!-- UJAS Application Widget -->
