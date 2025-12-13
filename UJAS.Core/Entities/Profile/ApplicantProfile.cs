@@ -1,71 +1,67 @@
-﻿using System;
-using System;
-using System.Collections.Generic;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using UJAS.Core.Entities.System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using UJAS.Core.Enums;
-using UJAS.Core.Shared;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UJAS.Core.Entities.Profile
 {
-    public class ApplicantProfile : BaseEntity
+    public class ApplicantProfile : BaseAuditableEntity
     {
         public int UserId { get; set; }
-        public virtual User User { get; set; }
 
         // Personal Information
-        public Salutation Salutation { get; set; }
-
-        [Required]
-        [MaxLength(100)]
+        public Salutation? Salutation { get; set; }
         public string FirstName { get; set; }
-
-        [MaxLength(100)]
         public string MiddleName { get; set; }
-
-        [Required]
-        [MaxLength(100)]
         public string LastName { get; set; }
-
-        [MaxLength(100)]
         public string PreferredFirstName { get; set; }
+        public string Email { get; set; }
+        public string AlternateEmail { get; set; }
+        public string MobilePhone { get; set; }
+        public string HomePhone { get; set; }
+        public string WorkPhone { get; set; }
+        public ContactMethod? PreferredContactMethod { get; set; }
+        public ContactTime? BestTimeToContact { get; set; }
 
-        public ValueObjects.ContactInfo ContactInfo { get; set; }
-        public ValueObjects.Address CurrentAddress { get; set; }
-        public ValueObjects.Address PreviousAddress { get; set; }
+        // Address
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string StateProvince { get; set; }
+        public string ZipPostalCode { get; set; }
+        public string Country { get; set; }
+        public AddressType? AddressType { get; set; }
+        public int? YearsAtCurrentAddress { get; set; }
+        public string PreviousAddress { get; set; }
+        public bool SameAsMailingAddress { get; set; } = true;
 
-        // Demographic Information (Voluntary)
+        // Demographic Information
         public GenderIdentity? GenderIdentity { get; set; }
+        public string GenderSelfDescription { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public Ethnicity? Ethnicity { get; set; }
         public VeteranStatus? VeteranStatus { get; set; }
         public DisabilityStatus? DisabilityStatus { get; set; }
-        public WorkAuthorization? WorkAuthorization { get; set; }
+        public WorkAuthorizationType? WorkAuthorization { get; set; }
         public string VisaType { get; set; }
         public DateTime? VisaExpirationDate { get; set; }
 
         // Employment Preferences
         public string DesiredJobTitle { get; set; }
-        public EmploymentType? DesiredEmploymentType { get; set; }
+        public EmploymentType? EmploymentTypeDesired { get; set; }
         public WorkSchedule? WorkSchedulePreference { get; set; }
         public ShiftAvailability? ShiftAvailability { get; set; }
         public bool? WillingToWorkOvertime { get; set; }
-        public decimal? MinimumSalary { get; set; }
+        public decimal? MinimumAcceptableSalary { get; set; }
         public decimal? DesiredSalaryFrom { get; set; }
         public decimal? DesiredSalaryTo { get; set; }
-        public bool WillingToRelocate { get; set; }
-        public int? RelocationRadiusMiles { get; set; }
+        public bool? WillingToRelocate { get; set; }
+        public int? RelocationRadius { get; set; }
         public DateTime? AvailableStartDate { get; set; }
         public int? NoticePeriodDays { get; set; }
         public string ReferredByEmployee { get; set; }
-        public ReferralSource? ReferralSource { get; set; }
+        public string HowDidYouHear { get; set; }
 
-        // Background Check Information
+        // Background Check
         public bool? LegallyAuthorizedToWork { get; set; }
         public bool? RequiresVisaSponsorship { get; set; }
         public bool? FelonyConviction { get; set; }
@@ -73,24 +69,27 @@ namespace UJAS.Core.Entities.Profile
         public bool? WillingBackgroundCheck { get; set; }
         public bool? WillingDrugTest { get; set; }
 
-        // Driver's License
-        public string DriversLicenseNumber { get; set; }
-        public string DriversLicenseState { get; set; }
-        public DateTime? DriversLicenseExpiration { get; set; }
-        public string DriversLicenseClass { get; set; }
+        // Resume
+        public string ResumeFilePath { get; set; }
+        public DateTime? ResumeLastUpdated { get; set; }
+        public VisibilitySetting? ResumeVisibility { get; set; }
 
-        // Criminal History
-        public bool? CriminalConviction { get; set; }
-        public string CriminalConvictionDetails { get; set; }
-        public bool? PendingCharges { get; set; }
-        public string PendingChargesDetails { get; set; }
+        // Photo
+        public string PhotoUrl { get; set; }
+        public bool? PhotoUsageConsent { get; set; }
 
-        // Navigation Properties
-        public virtual ICollection<Education> EducationHistory { get; set; } = new List<Education>();
+        // Navigation properties
+        public virtual User User { get; set; }
+        public virtual ICollection<EducationHistory> EducationHistories { get; set; } = new List<EducationHistory>();
+        public virtual ICollection<LicenseCertification> LicensesCertifications { get; set; } = new List<LicenseCertification>();
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
         public virtual ICollection<Skill> Skills { get; set; } = new List<Skill>();
         public virtual ICollection<Document> Documents { get; set; } = new List<Document>();
         public virtual ICollection<Reference> References { get; set; } = new List<Reference>();
         public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; } = new List<EmergencyContact>();
+        public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
+        public virtual MilitaryService MilitaryService { get; set; }
+        public virtual DriversLicenseInfo DriversLicenseInfo { get; set; }
+        public virtual CriminalHistory CriminalHistory { get; set; }
     }
 }

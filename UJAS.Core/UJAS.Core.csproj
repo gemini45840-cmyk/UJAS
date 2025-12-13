@@ -2,15 +2,23 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>UJAS.Core</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Universal Job Application System Team</Authors>
+		<Company>Open Source Project</Company>
+		<Description>Core domain entities and business logic for Universal Job Application System</Description>
+		<RepositoryUrl>https://github.com/gemini45840-cmyk/UJAS</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.0" />
 	</ItemGroup>
 
 </Project>

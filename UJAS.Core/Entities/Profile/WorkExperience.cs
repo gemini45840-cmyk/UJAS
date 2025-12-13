@@ -1,31 +1,13 @@
-﻿using System;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UJAS.Core.Shared;
-
-namespace UJAS.Core.Entities.Profile
+﻿namespace UJAS.Core.Entities.Profile
 {
     public class WorkExperience : BaseEntity
     {
         public int ApplicantProfileId { get; set; }
-        public virtual ApplicantProfile ApplicantProfile { get; set; }
-
-        [Required]
-        [MaxLength(200)]
         public string EmployerName { get; set; }
-
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
-
-        [Required]
-        [MaxLength(100)]
+        public string EmployerCity { get; set; }
+        public string EmployerStateProvince { get; set; }
+        public string EmployerCountry { get; set; }
         public string JobTitle { get; set; }
-
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsCurrentEmployer { get; set; }
@@ -35,10 +17,15 @@ namespace UJAS.Core.Entities.Profile
         public string SupervisorName { get; set; }
         public string SupervisorTitle { get; set; }
         public string SupervisorContact { get; set; }
-        public bool? ContactEmployerPermission { get; set; }
-        public string Responsibilities { get; set; }
-        public string Accomplishments { get; set; }
-        public string SkillsUsed { get; set; }
-        public int? EmployeesSupervised { get; set; }
+        public bool? CanContactEmployer { get; set; }
+        public string JobResponsibilities { get; set; }
+        public string KeyAccomplishments { get; set; }
+        public string SkillsUtilized { get; set; }
+        public string EquipmentSoftwareUsed { get; set; }
+        public int? NumberOfEmployeesSupervised { get; set; }
+        public int DisplayOrder { get; set; }
+
+        // Navigation properties
+        public virtual ApplicantProfile ApplicantProfile { get; set; }
     }
 }
