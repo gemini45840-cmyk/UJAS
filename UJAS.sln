@@ -13,6 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UJAS.Infrastructure", "UJAS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UJAS.Application", "UJAS.Application\UJAS.Application.csproj", "{EAF40B3B-72E8-487C-873E-8D837DF6087A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OneNote", "OneNote", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Additional Systems & Features.one = ..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Additional Systems & Features.one
+		..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Detailed Workflow.one = ..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Detailed Workflow.one
+		..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Diagrams.one = ..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Diagrams.one
+		..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Field Library.one = ..\..\..\Documents\OneNote Notebooks\UAJS Workflow\Field Library.one
+		OneNote\Workflow.one = OneNote\Workflow.one
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
