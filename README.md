@@ -1,4 +1,4 @@
-# UJAS – Universal Job Application System
+# UJAS – Universal Job Application System 85% Completed
 
 **UJAS** is an open-source hiring platform designed and led by a visionary, self-taught programmer and built by the community.
 
