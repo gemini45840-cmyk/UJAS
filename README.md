@@ -6,7 +6,7 @@ The Problem
 Companies spend $10,000-$100,000/year on hiring software.  Applicants face clunky, repetitive application processes.  No open-source solution exists that's both comprehensive and enterprise-ready.  Vendor lock-in prevents customization and innovation
 
 The Solution
-Free forever (self-hosted) or Paid (We host it).  Open source (MIT License).  Community-driven (you help build it).  Enterprise-ready (white-label, scalable, secure)
+Free forever (self-hosted) or Paid (We host it $49).  Open source (MIT License).  Community-driven (you help build it).  Enterprise-ready (white-label, scalable, secure)
 
 Our plans
 90 Second application time.  You go on company website apply using custom javescript code or QR code.  Select the location and position your applying for, answer custom questions and submit. Saving alot of time and more aqurate information.
