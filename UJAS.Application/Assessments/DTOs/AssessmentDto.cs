@@ -8,48 +8,56 @@ namespace UJAS.Application.Assessments.DTOs
 {
     public class AssessmentDto
     {
-        public int Id { get; set; }
-        public int CompanyId { get; set; }
+        public Guid Id { get; set; }
+        public Guid CompanyId { get; set; }
+        public string CompanyName { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string AssessmentType { get; set; }
+        public AssessmentTypeDto Type { get; set; }
+        public AssessmentCategoryDto Category { get; set; }
+        public string Instructions { get; set; }
+        public bool IsActive { get; set; }
         public bool IsRequired { get; set; }
         public int? TimeLimitMinutes { get; set; }
         public int PassingScore { get; set; }
-        public int MaxAttempts { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime? ValidFrom { get; set; }
-        public DateTime? ValidTo { get; set; }
-        public string Instructions { get; set; }
-        public string ExternalAssessmentUrl { get; set; }
-        public List<AssessmentQuestionDto> Questions { get; set; } = new();
+        public decimal Weight { get; set; } // For scoring weight in overall application
+        public int Version { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public Guid CreatedBy { get; set; }
+        public string CreatedByName { get; set; }
         public int QuestionCount { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public int AverageCompletionMinutes { get; set; }
+        public decimal AverageScore { get; set; }
+        public int TotalCompletions { get; set; }
+        public List<string> AssignedPositions { get; set; } = new();
+        public List<string> AssignedLocations { get; set; } = new();
+        public List<Guid> AssignedPositionIds { get; set; } = new();
+        public List<Guid> AssignedLocationIds { get; set; } = new();
     }
 
-    public class AssessmentQuestionDto
+    public enum AssessmentTypeDto
     {
-        public int Id { get; set; }
-        public int AssessmentId { get; set; }
-        public string QuestionText { get; set; }
-        public string QuestionType { get; set; }
-        public Dictionary<string, string> Options { get; set; } = new();
-        public string CorrectAnswer { get; set; }
-        public int Points { get; set; }
-        public int DisplayOrder { get; set; }
-        public bool IsRequired { get; set; }
-        public string HelpText { get; set; }
+        Personality,
+        Cognitive,
+        Skills,
+        Technical,
+        Language,
+        SituationalJudgment,
+        Behavioral,
+        Knowledge,
+        Aptitude,
+        VideoInterview,
+        CodingChallenge,
+        PortfolioReview,
+        Custom
     }
 
-    public class StartAssessmentDto
+    public enum AssessmentCategoryDto
     {
-        public int AssessmentId { get; set; }
-    }
-
-    public class SubmitAssessmentDto
-    {
-        public int AssessmentId { get; set; }
-        public Dictionary<int, string> Answers { get; set; } = new(); // QuestionId -> Answer
-        public TimeSpan? TimeTaken { get; set; }
+        PreScreening,
+        MainAssessment,
+        Supplemental,
+        Verification
     }
 }
