@@ -1,0 +1,77 @@
+﻿1. Assessment Creation & Management
+Support for multiple question types (multiple choice, text, rating scale, coding challenges, video responses, etc.)
+
+Section-based organization with time limits per section
+
+Randomization of questions and options
+
+Proctoring support with event tracking
+
+2. Advanced Scoring & Analytics
+Multiple scoring methods (simple sum, weighted, partial credit, negative marking)
+
+Skill-based scoring and measurement
+
+Score bands with recommendations
+
+Comprehensive analytics with question-level statistics
+
+3. Assessment Assignment
+Assignment to positions, locations, job titles, departments
+
+Automatic, manual, or conditional assignment
+
+Time-based assignment rules
+
+4. Candidate Experience
+Multiple attempts with cooldown periods
+
+Progress saving
+
+Practice attempts
+
+Accessibility mode
+
+Multi-language support
+
+5. Proctoring & Security
+Screen recording
+
+Webcam recording
+
+Tab switching detection
+
+Copy/paste detection
+
+Proctoring event review system
+
+6. Templates & Reusability
+Assessment templates for quick creation
+
+Public and private templates
+
+Template import/export
+
+Question library
+
+7. Analytics & Reporting
+Question difficulty analysis
+
+Discrimination index calculation
+
+Demographic analytics (EEO compliant)
+
+Score distribution
+
+Time analysis
+
+Export capabilities
+
+8. Integration Features
+Integration with Applications module
+
+Support for various file types in responses
+
+Custom CSS and JavaScript for branding
+
+API hooks for external systems

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,64 +8,141 @@ namespace UJAS.Application.Fields.DTOs
 {
     public class FieldDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Label { get; set; }
-        public string FieldType { get; set; }
-        public string FieldCategory { get; set; }
+        public string DisplayName { get; set; }
+        public string Description { get; set; }
+        public FieldTypeDto Type { get; set; }
+        public FieldCategoryDto Category { get; set; }
         public string Section { get; set; }
-        public int DisplayOrder { get; set; }
+        public int Order { get; set; }
         public bool IsRequired { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsSystemField { get; set; }
+        public bool IsEditable { get; set; }
         public bool IsVisible { get; set; }
-        public bool IsEnabled { get; set; }
-        public string ValidationRules { get; set; }
+        public string DataType { get; set; }
         public string DefaultValue { get; set; }
         public string HelpText { get; set; }
-        public string PlaceholderText { get; set; }
-        public Dictionary<string, string> Options { get; set; } = new();
-        public string ConditionalLogic { get; set; }
-        public bool ApplyToAllLocations { get; set; }
-        public bool IsCustomField { get; set; }
-        public int? SystemFieldId { get; set; }
-        public List<LocationFieldDto> LocationOverrides { get; set; } = new();
+        public string Placeholder { get; set; }
+
+        // Company/Global context
+        public Guid? CompanyId { get; set; }
+        public string CompanyName { get; set; }
+        public bool IsGlobal { get; set; }
+
+        // Validation
+        public ValidationDto Validation { get; set; }
+
+        // Options for select fields
+        public List<FieldOptionDto> Options { get; set; } = new();
+
+        // Conditional logic
+        public ConditionalLogicDto ConditionalLogic { get; set; }
+
+        // Privacy & Compliance
+        public PrivacyDto Privacy { get; set; }
+
+        // Metadata
+        public DateTime CreatedDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public Guid CreatedBy { get; set; }
+        public string CreatedByName { get; set; }
+        public int UsageCount { get; set; }
     }
 
-    public class CreateFieldDto
+    public class FieldDetailDto : FieldDto
     {
-        [Required]
-        public string Name { get; set; }
+        // Extended validation
+        public List<ValidationRuleDto> ValidationRules { get; set; } = new();
 
-        [Required]
-        public string Label { get; set; }
+        // Dependencies
+        public List<FieldDependencyDto> Dependencies { get; set; } = new();
+        public List<FieldDependencyDto> Dependents { get; set; } = new();
 
-        [Required]
-        public string FieldType { get; set; }
+        // Usage statistics
+        public FieldUsageDto Usage { get; set; }
 
-        [Required]
-        public string FieldCategory { get; set; }
+        // Audit trail
+        public List<FieldHistoryDto> History { get; set; } = new();
 
-        public string Section { get; set; }
-        public int DisplayOrder { get; set; }
-        public bool IsRequired { get; set; }
-        public bool IsVisible { get; set; } = true;
-        public string ValidationRules { get; set; }
-        public string DefaultValue { get; set; }
-        public string HelpText { get; set; }
-        public string PlaceholderText { get; set; }
-        public Dictionary<string, string> Options { get; set; } = new();
-        public string ConditionalLogic { get; set; }
-        public bool ApplyToAllLocations { get; set; } = true;
-        public List<int> LocationIds { get; set; } = new();
+        // Field mappings
+        public List<FieldMappingDto> Mappings { get; set; } = new();
     }
 
-    public class FieldValidationDto
+    public enum FieldTypeDto
     {
-        public bool Required { get; set; }
-        public int? MinLength { get; set; }
-        public int? MaxLength { get; set; }
-        public string Pattern { get; set; }
-        public decimal? MinValue { get; set; }
-        public decimal? MaxValue { get; set; }
-        public List<string> AllowedValues { get; set; } = new();
+        // Text Input
+        Text,
+        TextArea,
+        Email,
+        Phone,
+        Url,
+        Password,
+
+        // Numbers
+        Number,
+        Decimal,
+        Currency,
+        Percentage,
+
+        // Dates & Times
+        Date,
+        Time,
+        DateTime,
+        Month,
+        Year,
+
+        // Selection
+        Dropdown,
+        MultiSelect,
+        Radio,
+        Checkbox,
+
+        // Files
+        File,
+        Image,
+        Document,
+
+        // Specialized
+        Signature,
+        Rating,
+        Scale,
+        Matrix,
+        Range,
+        Color,
+
+        // Location
+        Address,
+        City,
+        State,
+        Country,
+        ZipCode,
+
+        // Complex
+        Group,
+        Repeater,
+        Table,
+
+        // Custom
+        Custom
+    }
+
+    public enum FieldCategoryDto
+    {
+        PersonalInformation,
+        ContactInformation,
+        Address,
+        Employment,
+        Education,
+        Skills,
+        Experience,
+        Documents,
+        Background,
+        References,
+        EmergencyContacts,
+        Preferences,
+        Agreements,
+        Custom
     }
 }
